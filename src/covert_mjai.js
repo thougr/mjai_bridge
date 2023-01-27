@@ -1674,6 +1674,1619 @@ const testLog =
             }
         }
     ]
+
+const testLog2 =
+    [
+        {
+            "name": "ActionNewRound",
+            "data": {
+                "chang": 0,
+                "ju": 0,
+                "ben": 1,
+                "tiles": [
+                    "1m",
+                    "8m",
+                    "1p",
+                    "2p",
+                    "2p",
+                    "4p",
+                    "7p",
+                    "7p",
+                    "1s",
+                    "2s",
+                    "1z",
+                    "5z",
+                    "6z"
+                ],
+                "scores": [
+                    26500,
+                    23500,
+                    26500,
+                    23500
+                ],
+                "liqibang": 0,
+                "al": false,
+                "md5": "10c76f27910a51896c8a0cd6e9cf287d",
+                "left_tile_count": 69,
+                "doras": [
+                    "4m"
+                ],
+                "opens": [
+                    {
+                        "seat": 0
+                    },
+                    {
+                        "seat": 1
+                    },
+                    {
+                        "seat": 2
+                    },
+                    {
+                        "seat": 3
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "2z",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 68,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "8s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "7z",
+                "left_tile_count": 67,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "1z",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 66,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "2z",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 65,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "4z",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 64,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "7z",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "1m",
+                "left_tile_count": 63,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "5z",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 62,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "8m",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 61,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "6s",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 60,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "5z",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "4p",
+                "left_tile_count": 59,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "8m",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionChiPengGang",
+            "data": {
+                "seat": 3,
+                "type": 0,
+                "tiles": [
+                    "7m",
+                    "9m",
+                    "8m"
+                ],
+                "froms": [
+                    3,
+                    3,
+                    2
+                ],
+                "zhenting": false,
+                "tile_states": [
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "4z",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 58,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "1p",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 57,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "1s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "4m",
+                "left_tile_count": 56,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "6z",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 55,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "1m",
+                "is_liqi": false,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 3,
+                            "combination": [
+                                "1m|1m"
+                            ]
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionChiPengGang",
+            "data": {
+                "seat": 2,
+                "type": 1,
+                "tiles": [
+                    "1m",
+                    "1m",
+                    "1m"
+                ],
+                "froms": [
+                    2,
+                    2,
+                    3
+                ],
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1,
+                            "combination": [
+                                "1m"
+                            ]
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false,
+                "tile_states": [
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "7z",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 54,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "9p",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 53,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "8p",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 52,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "6p",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "7z",
+                "left_tile_count": 51,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "7z",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 50,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "1z",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 49,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "6z",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 48,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "3s",
+                "is_liqi": false,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 2,
+                            "combination": [
+                                "1s|2s"
+                            ]
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "7s",
+                "left_tile_count": 47,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "7s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 46,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "6z",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 45,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "3p",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 44,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "1m",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "5p",
+                "left_tile_count": 43,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "2s",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 42,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "5m",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 41,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "8s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 40,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "3m",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "3s",
+                "left_tile_count": 39,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "1s",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 38,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "1z",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 37,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "9p",
+                "is_liqi": true,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 36,
+                "liqi": {
+                    "seat": 0,
+                    "score": 25500,
+                    "liqibang": 1
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "6m",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "6m",
+                "left_tile_count": 35,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "6m",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 34,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "3z",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 33,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "8s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 32,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "2s",
+                "is_liqi": true,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "4p",
+                "left_tile_count": 31,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "liqi": {
+                    "seat": 1,
+                    "score": 22500,
+                    "liqibang": 2
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "3s",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 30,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "0m",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 29,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "4z",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 28,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "9s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "1z",
+                "left_tile_count": 27,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "1z",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 26,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "0s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 25,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "6m",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 24,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "7s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "9m",
+                "left_tile_count": 23,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "9m",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 22,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "5z",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 21,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "2m",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 20,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "7m",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "3p",
+                "left_tile_count": 19,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "1p",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 18,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "9m",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 17,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "1s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 16,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "0p",
+                "is_liqi": false,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 2,
+                            "combination": [
+                                "3p|4p"
+                            ]
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "9p",
+                "left_tile_count": 15,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "5p",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 14,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "4p",
+                "is_liqi": false,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 3,
+                            "combination": [
+                                "4p|4p"
+                            ]
+                        },
+                        {
+                            "type": 5,
+                            "combination": [
+                                "4p|4p|4p"
+                            ]
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionChiPengGang",
+            "data": {
+                "seat": 2,
+                "type": 1,
+                "tiles": [
+                    "4p",
+                    "4p",
+                    "4p"
+                ],
+                "froms": [
+                    2,
+                    2,
+                    3
+                ],
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1,
+                            "combination": [
+                                "4p"
+                            ]
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false,
+                "tile_states": [
+                    0,
+                    0
+                ]
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "9p",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 13,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "4z",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 12,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 0,
+                "tile": "4s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 1,
+                "left_tile_count": 11,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 1,
+                "tile": "2s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "5s",
+                "left_tile_count": 10,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        },
+                        {
+                            "type": 6,
+                            "combination": [
+                                "4p|4p|4p|4p"
+                            ]
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionAnGangAddGang",
+            "data": {
+                "seat": 2,
+                "type": 2,
+                "tiles": "4p",
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 2,
+                "tile": "7s",
+                "left_tile_count": 9,
+                "operation": {
+                    "seat": 2,
+                    "operation_list": [
+                        {
+                            "type": 1
+                        }
+                    ],
+                    "time_add": 0,
+                    "time_fixed": 300000
+                },
+                "doras": [
+                    "4m"
+                ],
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 2,
+                "tile": "7s",
+                "is_liqi": false,
+                "moqie": true,
+                "zhenting": false,
+                "doras": [
+                    "4m",
+                    "3p"
+                ],
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 3,
+                "left_tile_count": 8,
+                "zhenting": false
+            }
+        },
+        {
+            "name": "ActionDiscardTile",
+            "data": {
+                "seat": 3,
+                "tile": "3m",
+                "is_liqi": false,
+                "moqie": false,
+                "zhenting": false,
+                "is_wliqi": false
+            }
+        },
+        {
+            "name": "ActionDealTile",
+            "data": {
+                "seat": 0,
+                "left_tile_count": 7,
+                "zhenting": false
+            }
+        }
+    ]
+
 // convert tenhou tile to mjai format
 const tenhouTile2MjaiTile = (tile) => {
     const tileMap = {
@@ -2247,7 +3860,7 @@ function convertActions2Log(actions) {
 }
 
 console.log(testData2.map(tile => mapToMjaiTile(tile)));
-console.log(JSON.stringify(convertActions2Log(testLog)));
+console.log(JSON.stringify(convertActions2Log(testLog2)));
 
 function convertToMjai() {
     const myData = getMyPlayerData();
