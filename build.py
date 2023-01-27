@@ -42,6 +42,7 @@ def main():
     data = addFileToString(data, "yaku.js")
     data = addFileToString(data, "ai_offense.js")
     data = addFileToString(data, "ai_defense.js")
+    data = addFileToString(data, "convert_mjai.js")
     data = addFileToString(data, "main.js")
         
     with open ('build/AlphaJong_' + VERSION + '.user.js', 'w', encoding="utf-8") as fp:

@@ -3304,6 +3304,24 @@ const tenhouTile2MjaiTile = (tile) => {
     return tileMap[tile] ? tileMap[tile] : tile;
 }
 
+// convert mjai to tenhou format
+const mjaiTile2TenhouTile = (tile) => {
+    const tileMap = {
+        '5sr': '0s',
+        '5mr': '0m',
+        '5pr': '0p',
+        'E': '1z',
+        'S': '2z',
+        'W': '3z',
+        'N': '4z',
+        'P': '5z',
+        'F': '6z',
+        'C': '7z',
+    }
+    return tileMap[tile] ? tileMap[tile] : tile;
+}
+
+
 const testData = [
     // 加杠
     {
@@ -3708,8 +3726,8 @@ function doraMarker(tile) {
     }
 }
 
-function startGame() {
-    return {"kyoku_first": 4, "aka_flag": true, "names": [], "type": "start_game" }
+function gameStart() {
+    return {"kyoku_first": 4, "aka_flag": true, "names": [], "type": "start_game"}
 }
 
 function start_kyoku(bakaze, kyoku, honba, kyotaku, oya, dora_marker, scores, tehais) {
@@ -3756,7 +3774,7 @@ function action2Mjai(action) {
             }
             res.push(start_kyoku(bakazeList[data.chang], data.ju + 1, data.ben, data.liqibang, data.ju, tenhouTile2MjaiTile(data.doras[0]),
                 data.scores, tehais))
-            if (mySeat == data.ju) {
+            if (data.tiles.length == 14) {
                 res.push(tsumo(data.ju, tenhouTile2MjaiTile(data.tiles[13])))
             }
             break;
@@ -3767,13 +3785,13 @@ function action2Mjai(action) {
                 res.push(reach(data.seat), dapai(data.seat, tenhouTile2MjaiTile(data.tile), data.moqie), reachAccepted(data.seat))
             }
             res.push(dapai(data.seat, tenhouTile2MjaiTile(data.tile), data.moqie));
-            if (data.doras) {
+            if (data.doras && data.doras.length > 0) {
                 res.push(doraMarker(tenhouTile2MjaiTile(data.doras[data.doras.length - 1])));
             }
             break;
 
         case 'ActionDealTile':
-            if (data.doras) {
+            if (data.doras && data.doras.length > 0) {
                 res.push(doraMarker(tenhouTile2MjaiTile(data.doras[data.doras.length - 1])));
             }
             if (data.tile) {
@@ -3824,47 +3842,179 @@ function action2Mjai(action) {
 
 function convertActions2Log(actions) {
     const log = [];
-    log.push(startGame());
+    log.push(gameStart());
     // let nextDoraIndex = 1;
     // let isKaikan = false;
     // console.log(actions)
     for (let i = 0; i < actions.length; i++) {
         const action = actions[i];
         const mjaiAction = action2Mjai(action);
-        // if (mjaiAction) {
-        log.push(...mjaiAction);
-        // if (Array.isArray(mjaiAction)) {
-        //     log.push(...mjaiAction);
+        // console.log('mjaiAction', mjaiAction, action);
+        // if (!mjaiAction) {
+        //     console.log('action', action)
         // } else {
-        // log.push(mjaiAction);
-        // if (mjaiAction.type == 'kakan' || mjaiAction.type == 'daiminkan') {
-        //     isKaikan = true;
+        //     if (mjaiAction.indexOf("undefined") != -1) {
+        //         console.log('mjaiAction', action)
+        //     }
         // }
-        // if (mjaiAction.type == 'ankan') {
-        //     log.push(dora_maker(dora[nextDoraIndex++]));
-        // }
-        // // 打完牌后，如果开杠了，显示宝牌
-        // if (isKaikan && mjaiAction.type == 'dahai') {
-        //     log.push(dora_maker(dora[nextDoraIndex++]));
-        //     isKaikan = false;
-        // }
-        // }
-        // }
+        log.push(...mjaiAction);
     }
+    // console.log('log', log)
     // output the array log to a file
-    console.log(log.forEach((item) => {
-        console.log(JSON.stringify(item));
-    }));
+    // console.log(log.forEach((item) => {
+    //     console.log(JSON.stringify(item));
+    // }));
 
     return log;
 }
 
-console.log(testData2.map(tile => mapToMjaiTile(tile)));
-console.log(JSON.stringify(convertActions2Log(testLog2)));
+// from code.js
+// function qipai(p, H, S, Z) {
+//     const inst = view.DesktopMgr.Inst;
+//     app.NetAgent.sendReq2MJ("FastTest", "inputOperation", {
+//         type: mjcore.E_PlayOperation.dapai,
+//         tile: p.toString(),
+//         moqie: H,
+//         timeuse: uiscript.UI_DesktopInfo.Inst._timecd.timeuse,
+//         tile_state: Z ? 1 : 0
+//     }, function (p) {
+//         p ? app.Log.Error("Action_QiPai 失败") : app.Log.info("Action_QiPai 成功")
+//     }), S ? inst.ClearOperationShow() : inst.WhenDoOperation()
+// }
 
-function convertToMjai() {
-    const myData = getMyPlayerData();
-    const myHand = myData.hand;
+// 根据返回的mjai log作出响应
+/**
+ * 立直： {"moves": [{"actor": 3, "type": "reach"}, {"actor": 3, "pai": "F", "tsumogiri": false, "type": "dahai"}]
+ * 暗杠：{
+    "actor": 3,
+    "consumed": [
+        "3s",
+        "3s",
+        "3s",
+        "3s"
+    ],
+    "type": "ankan"
+}
+ * @param log
+ * @returns {boolean}
+ */
+function handleAkochanResult(log) {
+    if (log.length == 0 || log[0].length == 0) {
+        return false;
+    }
+    const bestMove = log[0].moves[0];
+    console.log('bestMove', bestMove)
+    const type = bestMove.type;
+    switch (type) {
+        case 'dahai':
+            // const tile = mjaiTile2TenhouTile(bestMove.pai);
+            const player = view.DesktopMgr.Inst.players[0];
+            const hand = player.hand;
+            const indexList = hand.map((_, index) => index).filter(index => mapToMjaiTile(hand[index].val) == bestMove.pai)
+            if (indexList.length == 0) {
+                return false;
+            }
+            callDiscard(indexList[0]);
+            break;
+        case 'pon':
+            makeCallWithOption(mjcore.E_PlayOperation.peng, bestMove.consumed.map(mjaiTile2TenhouTile).concat('|'));
+            break;
+        case 'chi':
+            makeCallWithOption(mjcore.E_PlayOperation.eat, bestMove.consumed.map(mjaiTile2TenhouTile).concat('|'));
+            break;
+        case 'kakan':
+            makeCall(mjcore.E_PlayOperation.add_gang);
+            break;
+        case 'daiminkan':
+            makeCall(mjcore.E_PlayOperation.ming_gang);
+            break;
+        case 'ankan':
+            makeCall(mjcore.E_PlayOperation.an_gang);
+            break;
+        case 'reach':
+            sendRiichiCall(mjaiTile2TenhouTile(log[0].moves[1].pai), log[0].moves[1].tsumogiri);
+            break;
+        case 'none':
+            // do nothing
+            try {
+                app.NetAgent.sendReq2MJ('FastTest', 'inputChiPengGang', {cancel_operation: true, timeuse: 2});
+                view.DesktopMgr.Inst.WhenDoOperation();
+            } catch {
+                log("Failed to decline the Call. Maybe someone else was faster?");
+            }
+
+    }
+    return true;
 
 }
+
+async function requestServer(log, seat) {
+    return fetch('http://localhost:8787/akochan', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            actions: log,
+            seat: seat
+        }),
+        mode: 'cors',
+    })
+
+}
+
+async function doAkochan() {
+    return new Promise((resolve, reject) => {
+        app.NetAgent.sendReq2MJ("FastTest", "syncGame", {
+            round_id: view.DesktopMgr.Inst.round_id,
+            step: view.DesktopMgr.Inst.current_step
+        }, async function (H, S) {
+            console.log("H", H);
+            view.DesktopMgr.Inst.fetchLinks();
+            view.DesktopMgr.Inst.Reset();
+            view.DesktopMgr.Inst.duringReconnect = !0;
+            view.DesktopMgr.Inst.syncGameByStep(S.game_restore);
+
+            console.log(S.game_restore);
+            let restore = S.game_restore;
+            let actions = [];
+            for (var idx = 0; idx < restore.actions.length; idx++) {
+                var rawAction = restore.actions[idx];
+                var action = net.ProtobufManager.lookupType("lq." + rawAction.name).decode(rawAction.data);
+                actions.push({name: rawAction.name, data: action});
+            }
+            // view.DesktopMgr.Inst.setAutoMoQie(false);
+            // view.DesktopMgr.Inst.actionList = [];
+            console.log(actions);
+            const log = convertActions2Log(actions);
+            if (log.length > 0 && (log[log.length - 1].type == 'tsumo') || (log[log.length - 1].type == 'dahai')
+                || (log[log.length - 1].type == 'kakan')) {
+                const result = await requestServer(log, view.DesktopMgr.Inst.seat).then(res => res.json()).then(res => {
+                    console.log(res);
+                    console.log(res[0].moves)
+                    return res;
+                })
+                console.log('result', result)
+
+                resolve(handleAkochanResult(result));
+            } else {
+                resolve(false);
+            }
+
+        })
+
+    });
+
+}
+
+
+console.log(testData2.map(tile => mapToMjaiTile(tile)));
+// console.log(JSON.stringify(convertActions2Log(testLog2)));
+
+// requestServer(convertActions2Log(testLog2)).then(res => res.json()).then(res => {
+//     console.log(res);
+//     console.log(res[0].moves, res[0].moves[0].actor)
+//
+//     return res;
+// })
 
