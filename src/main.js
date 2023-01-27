@@ -26,6 +26,31 @@ if (!isDebug()) {
 }
 
 function toggleRun() {
+	app.NetAgent.sendReq2MJ("FastTest", "syncGame", {
+		round_id: view.DesktopMgr.Inst.round_id,
+		step: view.DesktopMgr.Inst.current_step
+	}, function (H, S) {
+		console.log("H", H);
+		view.DesktopMgr.Inst.fetchLinks();
+		view.DesktopMgr.Inst.Reset();
+		view.DesktopMgr.Inst.duringReconnect = !0;
+		view.DesktopMgr.Inst.syncGameByStep(S.game_restore);
+
+		console.log(S.game_restore);
+		let restore = S.game_restore;
+		let actions = [];
+		for (var idx = 0; idx < restore.actions.length; idx++) {
+			var rawAction = restore.actions[idx];
+			var action = net.ProtobufManager.lookupType("lq." + rawAction.name).decode(rawAction.data);
+			actions.push({name: rawAction.name, data: action});
+		}
+		// view.DesktopMgr.Inst.setAutoMoQie(false);
+		view.DesktopMgr.Inst.actionList = [];
+
+		console.log(actions);
+	})
+	// view.DesktopMgr.Inst.setAutoMoQie(false);
+	view.DesktopMgr.Inst.actionList = [];
 	clearCrtStrategyMsg();
 	if (run) {
 		log("AlphaJong deactivated!");
@@ -42,6 +67,7 @@ function toggleRun() {
 
 function waitForMainLobbyLoad() {
 	if (isInGame()) { // In case game is already ongoing after reload
+
 		refreshRoomSelection();
 		main();
 		return;
@@ -83,6 +109,8 @@ function main() {
 	}
 
 	var operations = getOperationList(); //Get possible Operations
+	console.log(operations);
+	console.log(view.DesktopMgr.Inst);
 
 	if (operations == null || operations.length == 0) {
 		errorCounter++;
