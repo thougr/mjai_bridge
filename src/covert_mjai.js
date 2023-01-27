@@ -2088,11 +2088,15 @@ function reachAccepted(actor) {
     }
 }
 
-function dora_maker(tile) {
+function doraMarker(tile) {
     return {
         type: "dora",
-        dora_maker: tile,
+        dora_marker: tile,
     }
+}
+
+function startGame() {
+    return {"kyoku_first": 4, "aka_flag": true, "names": [], "type": "start_game" }
 }
 
 function start_kyoku(bakaze, kyoku, honba, kyotaku, oya, dora_marker, scores, tehais) {
@@ -2151,13 +2155,13 @@ function action2Mjai(action) {
             }
             res.push(dapai(data.seat, tenhouTile2MjaiTile(data.tile), data.moqie));
             if (data.doras) {
-                res.push(dora_maker(tenhouTile2MjaiTile(data.doras[data.doras.length - 1])));
+                res.push(doraMarker(tenhouTile2MjaiTile(data.doras[data.doras.length - 1])));
             }
             break;
 
         case 'ActionDealTile':
             if (data.doras) {
-                res.push(dora_maker(tenhouTile2MjaiTile(data.doras[data.doras.length - 1])));
+                res.push(doraMarker(tenhouTile2MjaiTile(data.doras[data.doras.length - 1])));
             }
             if (data.tile) {
                 res.push(tsumo(data.seat, tenhouTile2MjaiTile(data.tile)));
@@ -2167,12 +2171,15 @@ function action2Mjai(action) {
             const diffSeatIndex = data.froms.map((_, index) => index).filter((index) => data.froms[index] != data.seat)[0];
             const from = data.froms[diffSeatIndex];
             const pai = data.tiles[diffSeatIndex];
+            const tiles = [...data.tiles];
+            // delete the pai from tiles
+            tiles.splice(diffSeatIndex, 1);
             if (data.type == 0) {
-                res.push(chi(data.seat, from, tenhouTile2MjaiTile(pai), data.tiles.map(tenhouTile2MjaiTile)));
+                res.push(chi(data.seat, from, tenhouTile2MjaiTile(pai), tiles.map(tenhouTile2MjaiTile)));
             } else if (data.type == 1) {
-                res.push(pon(data.seat, from, tenhouTile2MjaiTile(pai), data.tiles.map(tenhouTile2MjaiTile)));
+                res.push(pon(data.seat, from, tenhouTile2MjaiTile(pai), tiles.map(tenhouTile2MjaiTile)));
             } else if (data.type == 2) {
-                res.push(daiminkan(data.seat, from, tenhouTile2MjaiTile(pai), data.tiles.map(tenhouTile2MjaiTile)));
+                res.push(daiminkan(data.seat, from, tenhouTile2MjaiTile(pai), tiles.map(tenhouTile2MjaiTile)));
             }
 
             break;
@@ -2180,25 +2187,21 @@ function action2Mjai(action) {
         case 'ActionAnGangAddGang':
             let consumed = [];
             let tile = data.tiles;
-            if (tile == '0m') {
-                consumed = ['5m', '5m', '5m']
-            } else if (tile == '0p') {
-                consumed = ['5p', '5p', '5p']
-            } else if (tile == '0s') {
-                consumed = ['5s', '5s', '5s']
-            } else if (tile == '5m') {
-                consumed = ['0m', '5m', '5m']
-            } else if (tile == '5p') {
-                consumed = ['0p', '5p', '5p']
-            } else if (tile == '5s') {
-                consumed = ['0s', '5s', '5s']
+            if (tile == '0m' || tile == '5m') {
+                consumed = ['0m', '5m', '5m', '5m']
+            } else if (tile == '0p' || tile == '5p') {
+                consumed = ['0p', '5p', '5p', '5p']
+            } else if (tile == '0s' || tile == '5s') {
+                consumed = ['0s', '5s', '5s', '5s']
             } else {
-                consumed = [tile, tile, tile]
+                consumed = [tile, tile, tile, tile];
             }
             if (data.type == 3) {
                 res.push(ankan(data.seat, consumed.map(tenhouTile2MjaiTile)));
             } else if (data.type == 2) {
                 // 加杠
+                // remove the tile from consumed
+                consumed.splice(consumed.indexOf(tile), 1);
                 res.push(kakan(data.seat, tenhouTile2MjaiTile(tile), consumed.map(tenhouTile2MjaiTile)));
             }
             break;
@@ -2208,6 +2211,7 @@ function action2Mjai(action) {
 
 function convertActions2Log(actions) {
     const log = [];
+    log.push(startGame());
     // let nextDoraIndex = 1;
     // let isKaikan = false;
     // console.log(actions)
@@ -2234,6 +2238,11 @@ function convertActions2Log(actions) {
         // }
         // }
     }
+    // output the array log to a file
+    console.log(log.forEach((item) => {
+        console.log(JSON.stringify(item));
+    }));
+
     return log;
 }
 
