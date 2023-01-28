@@ -222,6 +222,7 @@ async function doAlphaJong() {
 }
 
 async function mainOwnTurn() {
+	changeDefinition();
 	if (threadIsRunning) {
 		return;
 	}
