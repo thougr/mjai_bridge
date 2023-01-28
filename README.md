@@ -27,4 +27,5 @@
 
 
 ## 其他注意事项
-可参考https://github.com/Jimboom7/AlphaJong
+本工具封号风险巨大，仅供娱乐，本作者不负责。
+其他可参考https://github.com/Jimboom7/AlphaJong
