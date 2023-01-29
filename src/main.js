@@ -50,7 +50,7 @@ function toggleRun() {
 	// 	console.log(actions);
 	// })
 	// view.DesktopMgr.Inst.setAutoMoQie(false);
-	view.DesktopMgr.Inst.actionList = [];
+	// view.DesktopMgr.Inst.actionList = [];
 	clearCrtStrategyMsg();
 	if (run) {
 		log("AlphaJong deactivated!");
