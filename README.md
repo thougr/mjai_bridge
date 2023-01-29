@@ -11,9 +11,10 @@
 
 ## 如何上手
 
+* 在地址栏输入chrome://flags/#allow-insecure-localhost并启用，重启浏览器。
 * 安装一个可以让你运行用户脚本的浏览器扩展，如 [Tampermonkey](https://www.tampermonkey.net/?locale=zh)油猴插件。
 * 直接点击构建好的网页文件 [release of this project](https://github.com/thougr/mjai_bridge/releases/tag/1.0.0) ，并将其安装在你的浏览器扩展中。 (对于油猴插件，你可以在实用工具->从URL安装中输入下载地址)。
-* 根据[mjai_server](https://github.com/thougr/mjai_server) 启动AI服务器。
+* 根据[mjai_server](https://github.com/thougr/mjai_server) 启动AI服务器(推荐用docker)。
 * 打开 [雀魂](https://game.maj-soul.com/1/) (打开之前确定你已经登录进雀魂)。
 * 进入任一一个对局，当对局开始点击“Start Bot”。
 * 你可以勾选 “Autostart new Game”，AI会自动启动新的游戏。
