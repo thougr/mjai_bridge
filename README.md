@@ -4,7 +4,7 @@
 目前使用这个机器人已经不安全了，请大家小心!
 
 ## 关于这个工程
-该项目是雀魂AI出牌的脚本，该项目是基于[AlphaJong](https://github.com/Jimboom7/AlphaJong) 的代码编写的，部分代码参考了[Avenshy](https://github.com/Avenshy/mahjong-helper-majsoul) 的mahjong-helper。原有的AI不太智能，所以本人选择改成采用[Akochan](https://github.com/critter-mj/akochan) 的AI。
+该项目是雀魂AI出牌的脚本(use Mahjong Akochan AI)，该项目是基于[AlphaJong](https://github.com/Jimboom7/AlphaJong) 的代码编写的，部分代码参考了[Avenshy](https://github.com/Avenshy/mahjong-helper-majsoul) 的mahjong-helper。原有的AI不太智能，所以本人选择改成采用[Akochan](https://github.com/critter-mj/akochan) 的AI。
 由于Akochan采用的是mjai-log的形式通信和阅谱，该项目的工作一部分是将雀魂对战信息转化成mjai-log,
 另一部分的工作如：与AI通信、注入原有的通信函数等等。
 
