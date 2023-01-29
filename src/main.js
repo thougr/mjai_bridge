@@ -164,6 +164,16 @@ function checkPlayerOpChanged() {
 }
 
 async function doAlphaJong() {
+	log("Debug String: " + getDebugString());
+	if (getNumberOfPlayers() == 3) {
+		log("Right Player Tenpai Chance: " + Number(isPlayerTenpai(1) * 100).toFixed(1) + "%, Expected Hand Value: " + Number(getExpectedHandValue(1).toFixed(0)));
+		log("Left Player Tenpai Chance: " + Number(isPlayerTenpai(2) * 100).toFixed(1) + "%, Expected Hand Value: " + Number(getExpectedHandValue(2).toFixed(0)));
+	}
+	else {
+		log("Shimocha Tenpai Chance: " + Number(isPlayerTenpai(1) * 100).toFixed(1) + "%, Expected Hand Value: " + Number(getExpectedHandValue(1).toFixed(0)));
+		log("Toimen Tenpai Chance: " + Number(isPlayerTenpai(2) * 100).toFixed(1) + "%, Expected Hand Value: " + Number(getExpectedHandValue(2).toFixed(0)));
+		log("Kamicha Tenpai Chance: " + Number(isPlayerTenpai(3) * 100).toFixed(1) + "%, Expected Hand Value: " + Number(getExpectedHandValue(3).toFixed(0)));
+	}
 	var operations = getOperationList();
 	determineStrategy(); //Get the Strategy for the current situation. After calls so it does not reset folds
 
@@ -222,11 +232,11 @@ async function doAlphaJong() {
 }
 
 async function mainOwnTurn() {
-	changeDefinition();
 	if (threadIsRunning) {
 		return;
 	}
 	threadIsRunning = true;
+	changeDefinition();
 
 	//HELP MODE, if player not operate, just skip
 	if (MODE === AIMODE.HELP) {
@@ -239,23 +249,13 @@ async function mainOwnTurn() {
 		}
 	}
 
-	setData(); //Set current state of the board to local variables
 
 
 	log("##### OWN TURN #####");
-	log("Debug String: " + getDebugString());
-	if (getNumberOfPlayers() == 3) {
-		log("Right Player Tenpai Chance: " + Number(isPlayerTenpai(1) * 100).toFixed(1) + "%, Expected Hand Value: " + Number(getExpectedHandValue(1).toFixed(0)));
-		log("Left Player Tenpai Chance: " + Number(isPlayerTenpai(2) * 100).toFixed(1) + "%, Expected Hand Value: " + Number(getExpectedHandValue(2).toFixed(0)));
-	}
-	else {
-		log("Shimocha Tenpai Chance: " + Number(isPlayerTenpai(1) * 100).toFixed(1) + "%, Expected Hand Value: " + Number(getExpectedHandValue(1).toFixed(0)));
-		log("Toimen Tenpai Chance: " + Number(isPlayerTenpai(2) * 100).toFixed(1) + "%, Expected Hand Value: " + Number(getExpectedHandValue(2).toFixed(0)));
-		log("Kamicha Tenpai Chance: " + Number(isPlayerTenpai(3) * 100).toFixed(1) + "%, Expected Hand Value: " + Number(getExpectedHandValue(3).toFixed(0)));
-	}
 	const succ = await doAkochan();
 	if (!succ) {
 		log('Akochan failed, trying AlphaJong');
+		setData(); //Set current state of the board to local variables
 		await doAlphaJong();
 	} else {
 		log('Akochan succeeded');
@@ -330,7 +330,7 @@ function setData(mainUpdate = true) {
 	}
 	if (tilesLeft < getTilesLeft()) { //Check if new round/reload
 		if (MODE === AIMODE.AUTO) {
-			setAutoCallWin(true);
+			// setAutoCallWin(true);
 		}
 		strategy = STRATEGIES.GENERAL;
 		strategyAllowsCalls = true;

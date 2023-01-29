@@ -3916,6 +3916,13 @@ function doDaHai(pai) {
         "type": "ryukyoku"
     }
 ]
+ron:
+ {
+    "actor": 1,
+    "pai": "8p",
+    "target": 0,
+    "type": "hora"
+}
  * @param log
  * @returns {boolean}
  */
@@ -3965,6 +3972,15 @@ async function handleAkochanResult(log) {
             // 流局
             sendAbortiveDrawCall();
             break;
+        case 'hora':
+            if (bestMove.target == bestMove.actor) {
+                // 自摸
+                callTsumo();
+            } else {
+                // 放铳
+                callRon();
+            }
+            break;
         case 'none':
             // do nothing
             try {
@@ -3973,14 +3989,22 @@ async function handleAkochanResult(log) {
             } catch {
                 log("Failed to decline the Call. Maybe someone else was faster?");
             }
-
+            break;
+        default:
+            return false;
     }
     return true;
 
 }
 
 async function requestServer(log, seat) {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    setTimeout(() => {
+        controller.abort();
+    }, 5000);
     return fetch('http://localhost:8787/akochan', {
+        signal: signal,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -3991,7 +4015,6 @@ async function requestServer(log, seat) {
         }),
         mode: 'cors',
     })
-
 }
 
 function syncActions() {
@@ -4042,9 +4065,16 @@ async function doAkochan() {
         || (log[log.length - 1].type == 'kakan')) {
         const result = await requestServer(log, view.DesktopMgr.Inst.seat).then(res => res.json()).then(res => {
             console.log(res);
-            console.log(res[0].moves)
-            return res;
-        })
+            if (Array.isArray(res)) {
+                console.log(res[0].moves);
+                return res;
+            } else {
+                return [];
+            }
+        }).catch(err => {
+            console.log("超时了", err);
+            return [];
+        });
         console.log('result', result)
 
         return (handleAkochanResult(result));
