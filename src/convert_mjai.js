@@ -3908,6 +3908,14 @@ function doDaHai(pai) {
     ],
     "type": "ankan"
 }
+流局:
+ [
+    {
+        "actor": 1,
+        "reason": "kyushukyuhai",
+        "type": "ryukyoku"
+    }
+]
  * @param log
  * @returns {boolean}
  */
@@ -3952,6 +3960,10 @@ async function handleAkochanResult(log) {
             break;
         case 'reach':
             sendRiichiCall(mjaiTile2TenhouTile(bestChoice.moves[1].pai), bestChoice.moves[1].tsumogiri);
+            break;
+        case 'ryukyoku':
+            // 流局
+            sendAbortiveDrawCall();
             break;
         case 'none':
             // do nothing
