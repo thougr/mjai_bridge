@@ -11,14 +11,14 @@ def addFileToString(inputString, filename):
         
     return inputString
     
-VERSION = "1.3.2_beta"
+VERSION = "1.3.3"
 
 data = f"""// ==UserScript==
-// @name         AlphaJong
-// @namespace    alphajong
+// @name         thougr
+// @namespace    thougr
 // @version      {VERSION}
 // @description  A Mahjong Soul Bot.
-// @author       Jimboom7
+// @author       Jimboom7/thougr
 // @match        https://mahjongsoul.game.yo-star.com/*
 // @match        https://majsoul.com/*
 // @match        https://game.maj-soul.com/*
@@ -45,7 +45,7 @@ def main():
     data = addFileToString(data, "convert_mjai.js")
     data = addFileToString(data, "main.js")
         
-    with open ('build/AlphaJong_' + VERSION + '.user.js', 'w', encoding="utf-8") as fp:
+    with open ('build/mjai-bridge' + VERSION + '.user.js', 'w', encoding="utf-8") as fp:
         fp.write(data)
 
 if __name__ == "__main__":

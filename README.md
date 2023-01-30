@@ -5,8 +5,14 @@
 
 ## 关于这个工程
 该项目是雀魂AI出牌的脚本(use Mahjong Akochan AI)，该项目是基于[AlphaJong](https://github.com/Jimboom7/AlphaJong) 的代码编写的，部分代码参考了[Avenshy](https://github.com/Avenshy/mahjong-helper-majsoul) 的mahjong-helper。原有的AI不太智能，所以本人选择改成采用[Akochan](https://github.com/critter-mj/akochan) 的AI。
-由于Akochan采用的是mjai-log的形式通信和阅谱，该项目的工作一部分是将雀魂对战信息转化成mjai-log,
-另一部分的工作如：与AI通信、注入原有的通信函数等等。
+该项目主要工作如下：
+* 将雀魂、mjai、tenhou的tile相互转换  
+* 覆盖雀魂出牌行为，来获取所有行为  
+* 读取雀魂出牌的行为，并存储进cache  
+* 将所有雀魂出牌行为转化成mjai可读的格式  
+* 将mjai-log传输给Akochan  
+* 根据Akochan的最优解来出牌  
+* 调用Akochan算法超时(设置了5s超时)时,采取原版AI 
 
 
 ## 如何上手
@@ -24,7 +30,6 @@
 
 * Akochan AI执行速度有点慢，可能取决于电脑CPU，由于本人电脑性能一般，偶尔会出现8秒左右才会作出响应。可以换成Mortal?不过不懂深度学习，超出本人的能力范围。
 * 不支持手动，只能自动。
-* 代码很乱，有待整理。
 
 
 ## 其他注意事项
